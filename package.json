@@ -1,6 +1,6 @@
 {
   "name": "@bjervis/eslint-plugin-redundant-stack",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Warn on <Stack> elements that only have a single child",
   "main": "lib/check-stack-children.js",
   "author": "Ben Jervis",
