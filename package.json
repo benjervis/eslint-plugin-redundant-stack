@@ -1,0 +1,17 @@
+{
+  "name": "@bjervis/eslint-plugin-redundant-stack",
+  "version": "0.0.1",
+  "description": "Warn on <Stack> elements that only have a single child",
+  "main": "lib/check-stack-children.js",
+  "author": "Ben Jervis",
+  "license": "MIT",
+  "scripts": {
+    "build": "babel src -d lib",
+    "test": "yarn build && node test/check-stack-children.test.js"
+  },
+  "devDependencies": {
+    "@babel/cli": "7.14.5",
+    "@babel/core": "7.14.6",
+    "eslint": "7.29.0"
+  }
+}
