@@ -48,9 +48,7 @@ const Element = () => (
 )
 `.trim();
 
-const rule = rules['no-redundant-stack'];
-
-ruleTester.run('redundant-stack', rule, {
+ruleTester.run('redundant-stack', rules['no-redundant-stack'], {
   valid: [multiChildStackCode, arrayChildStackCode],
   invalid: [
     {
