@@ -14,10 +14,29 @@ jobs:
       - node/install-packages:
           pkg-manager: yarn
       - run:
+          name: Build
+          command: yarn build
+      - run:
           name: Run tests
           command: yarn test
+  release:
+    docker:
+      - image: cimg/node:14.17
+    steps:
+      - checkout
+      - node/install-packages:
+          pkg-manager: yarn
+      - run:
+          name: Build
+          command: yarn build
+      - run:
+          name: Release
+          command: yarn semantic-release
 
 workflows:
   sample:
     jobs:
       - build-and-test
+      - release:
+          requires:
+            - build-and-test
