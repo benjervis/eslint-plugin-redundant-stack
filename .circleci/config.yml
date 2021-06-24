@@ -34,7 +34,7 @@ jobs:
           command: yarn semantic-release
 
 workflows:
-  sample:
+  release:
     jobs:
       - build-and-test
       - release:
