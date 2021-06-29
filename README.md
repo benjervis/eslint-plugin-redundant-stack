@@ -6,6 +6,37 @@ Braid Stacks are used to manage the vertical spacing between elements. If you ha
 
 Usually this comes about because you did need a Stack originally, but refactored away the other child elements, not realising there was only one left.
 
+## Examples
+```jsx
+// ok
+<Stack space="medium">
+  <Text>First item</Text>
+  <Text>Second item</Text>
+</Stack>
+```
+
+```jsx
+// also ok, because it will generate several children
+<Stack space="large">
+  {jobs.map((job) => (
+    <JobsCard job={job} />
+  ))}
+</Stack>
+```
+
+```jsx
+// error - single child
+<Stack space="medium">
+  <Text>Single item</Text>
+</Stack>
+```
+
+```jsx
+// error - empty
+<Stack space="medium">
+</Stack>
+```
+
 ## Usage
 
 ```bash
