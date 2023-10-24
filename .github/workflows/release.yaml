@@ -1,0 +1,23 @@
+name: Release
+
+on: push
+
+jobs:
+  build-and-test:
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@main
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@main
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Build
+        run: yarn build
+
+      - name: Run tests
+        run: yarn test
