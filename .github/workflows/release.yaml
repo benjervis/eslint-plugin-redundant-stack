@@ -1,0 +1,26 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  release:
+    needs: build-and-test
+    name: 🚀 Release
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@main
+
+      - name: Set up Node.js
+        uses: actions/setup-node@main
+        with:
+          node-version-file: '.nvmrc'
+
+      - name: Install Dependencies
+        run: yarn
+
+      - name: Release
+        run: yarn semantic-release
