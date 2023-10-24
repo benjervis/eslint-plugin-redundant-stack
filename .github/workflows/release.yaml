@@ -7,8 +7,7 @@ on:
 
 jobs:
   release:
-    needs: build-and-test
-    name: 🚀 Release
+    name: 📗 Publish
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repo
