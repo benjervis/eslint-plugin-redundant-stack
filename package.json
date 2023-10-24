@@ -20,5 +20,6 @@
   "repository": {
     "type": "git",
     "url": "https://github.com/benjervis/eslint-plugin-redundant-stack.git"
-  }
+  },
+  "packageManager": "pnpm@8.9.2"
 }
