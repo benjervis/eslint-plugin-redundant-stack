@@ -8,7 +8,11 @@
   "scripts": {
     "build": "babel src -d lib",
     "test": "pnpm build && node test/check-stack-children.test.js",
-    "semantic-release": "semantic-release"
+    "semantic-release": "semantic-release",
+    "lint:prettier": "prettier --cache --list-different .",
+    "format:prettier": "prettier --cache --write .",
+    "format": "pnpm run format:prettier",
+    "lint": "pnpm run lint:prettier"
   },
   "devDependencies": {
     "@babel/cli": "7.23.0",
