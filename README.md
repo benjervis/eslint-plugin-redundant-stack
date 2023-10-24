@@ -40,7 +40,7 @@ Usually this comes about because you did need a Stack originally, but refactored
 ## Usage
 
 ```bash
-yarn add -D @bjervis/eslint-plugin-redundant-stack
+pnpm add -D @bjervis/eslint-plugin-redundant-stack
 ```
 
 Then in your eslint config

@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src -d lib",
-    "test": "yarn build && node test/check-stack-children.test.js",
+    "test": "pnpm build && node test/check-stack-children.test.js",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
