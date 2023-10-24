@@ -13,13 +13,17 @@ jobs:
       - name: Checkout Repo
         uses: actions/checkout@main
 
+      - name: Set up pnpm
+        uses: pnpm/action-setup@v2
+
       - name: Set up Node.js
         uses: actions/setup-node@main
         with:
           node-version-file: '.nvmrc'
+          cache: pnpm
 
       - name: Install Dependencies
-        run: yarn
+        run: pnpm install --frozen-lockfile
 
       - name: Release
-        run: yarn semantic-release
+        run: pnpm semantic-release
