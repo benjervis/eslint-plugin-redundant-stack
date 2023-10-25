@@ -8,6 +8,17 @@ import { BaseNode } from "estree";
 
 type JSXElementChildNode = JSXElementNode | JSXExpressionContainerNode;
 
+interface Literal {
+  type: "Literal";
+  value: string;
+}
+
+interface JSXAttribute {
+  type: "JSXAttribute";
+  name: JSXIdentifierNode;
+  value: JSXElementChildNode | Literal | null;
+}
+
 interface JSXExpressionContainerNode {
   type: "JSXExpressionContainer";
   expression: JSXElementNode;
@@ -15,8 +26,14 @@ interface JSXExpressionContainerNode {
 
 interface JSXOpeningElementNode {
   type: "JSXOpeningElement";
+  attributes: JSXAttribute[];
   name: JSXIdentifierNode;
   selfClosing: boolean;
+}
+
+interface JSXClosingElementNode {
+  type: "JSXClosingElement";
+  name: JSXIdentifierNode;
 }
 
 interface JSXIdentifierNode {
@@ -25,9 +42,9 @@ interface JSXIdentifierNode {
 }
 
 interface JSXElementNode extends BaseNode {
-  id: string;
   type: "JSXElement";
   openingElement: JSXOpeningElementNode;
+  closingElement: JSXClosingElementNode | null;
   children: JSXElementChildNode[];
 }
 
