@@ -15,7 +15,7 @@
     "lint:eslint": "eslint --cache .",
     "format:eslint": "eslint --cache --fix .",
     "format": "pnpm run format:prettier && pnpm run format:eslint",
-    "lint": "pnpm run lint:prettier && pnpm run lint:eslint"
+    "lint": "pnpm run lint:prettier && pnpm run lint:eslint && pnpm run tsc"
   },
   "devDependencies": {
     "@babel/cli": "7.23.0",
