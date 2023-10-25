@@ -11,5 +11,5 @@
     "lib": ["es2019"],
     "target": "es5"
   },
-  "include": ["./src"]
+  "include": ["./src", "./test"]
 }
