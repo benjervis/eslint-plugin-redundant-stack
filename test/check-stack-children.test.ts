@@ -1,5 +1,6 @@
-import { rules } from '../src/check-stack-children';
 import { RuleTester } from 'eslint';
+
+import { rules } from '../src/check-stack-children';
 
 const parserOptions = {
   ecmaVersion: 2018,

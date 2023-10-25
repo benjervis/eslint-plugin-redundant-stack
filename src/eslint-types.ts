@@ -1,5 +1,5 @@
-import { Rule } from 'eslint';
-import { BaseNode } from 'estree';
+import type { Rule } from 'eslint';
+import type { BaseNode } from 'estree';
 
 /**
  * This is all required because the JSXElement is included in eslint by default
@@ -49,6 +49,8 @@ interface JSXElementNode extends BaseNode {
 }
 
 declare module 'eslint' {
+  // We need a namespace to properly override the eslint types
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Rule {
     interface NodeListener {
       JSXElement(node: JSXElementNode): void;
