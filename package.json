@@ -7,15 +7,20 @@
   "license": "MIT",
   "scripts": {
     "build": "babel src -d lib",
-    "test": "pnpm build && node test/check-stack-children.test.js",
+    "test": "tsm test/check-stack-children.test.ts",
+    "tsc": "tsc",
     "semantic-release": "semantic-release"
   },
   "devDependencies": {
     "@babel/cli": "7.23.0",
     "@babel/core": "7.23.2",
     "@babel/preset-env": "7.23.2",
+    "@types/eslint": "^8.44.6",
+    "@types/estree": "^1.0.3",
     "eslint": "7.29.0",
-    "semantic-release": "^17.4.4"
+    "semantic-release": "^17.4.4",
+    "tsm": "^2.3.0",
+    "typescript": "^5.2.2"
   },
   "repository": {
     "type": "git",
