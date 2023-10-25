@@ -1,4 +1,7 @@
-export const rules = {
+import 'eslint-plugin-react/lib/types';
+import { Rule } from 'eslint';
+
+export const rules: Record<'no-redundant-stack', Rule.RuleModule > = {
   'no-redundant-stack': {
     meta: {
       docs: {
@@ -12,7 +15,7 @@ export const rules = {
       },
     },
     create: (context) => {
-      return {
+      const listener =  {
         JSXElement: (node) => {
           const elementName = node.openingElement.name.name;
           if (elementName !== 'Stack') {
@@ -48,7 +51,8 @@ export const rules = {
             });
           }
         },
-      };
+      } satisfies Rule.NodeListener;
+      return listener
     },
   },
 };
