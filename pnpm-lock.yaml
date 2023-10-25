@@ -17,6 +17,9 @@ devDependencies:
   '@types/eslint':
     specifier: ^8.44.6
     version: 8.44.6
+  '@types/estree':
+    specifier: ^1.0.3
+    version: 1.0.3
   eslint:
     specifier: 7.29.0
     version: 7.29.0
