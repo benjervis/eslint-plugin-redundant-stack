@@ -1,5 +1,5 @@
-import { Rule } from "eslint";
-import { BaseNode } from "estree";
+import type { Rule } from 'eslint';
+import type { BaseNode } from 'estree';
 
 /**
  * This is all required because the JSXElement is included in eslint by default
@@ -9,46 +9,48 @@ import { BaseNode } from "estree";
 type JSXElementChildNode = JSXElementNode | JSXExpressionContainerNode;
 
 interface Literal {
-  type: "Literal";
+  type: 'Literal';
   value: string;
 }
 
 interface JSXAttribute {
-  type: "JSXAttribute";
+  type: 'JSXAttribute';
   name: JSXIdentifierNode;
   value: JSXElementChildNode | Literal | null;
 }
 
 interface JSXExpressionContainerNode {
-  type: "JSXExpressionContainer";
+  type: 'JSXExpressionContainer';
   expression: JSXElementNode;
 }
 
 interface JSXOpeningElementNode {
-  type: "JSXOpeningElement";
+  type: 'JSXOpeningElement';
   attributes: JSXAttribute[];
   name: JSXIdentifierNode;
   selfClosing: boolean;
 }
 
 interface JSXClosingElementNode {
-  type: "JSXClosingElement";
+  type: 'JSXClosingElement';
   name: JSXIdentifierNode;
 }
 
 interface JSXIdentifierNode {
-  type: "JSXIdentifier";
+  type: 'JSXIdentifier';
   name: string;
 }
 
 interface JSXElementNode extends BaseNode {
-  type: "JSXElement";
+  type: 'JSXElement';
   openingElement: JSXOpeningElementNode;
   closingElement: JSXClosingElementNode | null;
   children: JSXElementChildNode[];
 }
 
-declare module "eslint" {
+declare module 'eslint' {
+  // We need a namespace to properly override the eslint types
+  // eslint-disable-next-line @typescript-eslint/no-namespace
   namespace Rule {
     interface NodeListener {
       JSXElement(node: JSXElementNode): void;
@@ -60,7 +62,7 @@ declare module "eslint" {
   }
 }
 
-declare module "estree" {
+declare module 'estree' {
   interface NodeMap {
     JSXElement: JSXElementNode;
   }

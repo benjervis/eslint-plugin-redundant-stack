@@ -1,9 +1,10 @@
-import { rules } from "../src/check-stack-children";
-import { RuleTester } from "eslint";
+import { RuleTester } from 'eslint';
+
+import { rules } from '../src/check-stack-children';
 
 const parserOptions = {
   ecmaVersion: 2018,
-  sourceType: "module",
+  sourceType: 'module',
   ecmaFeatures: {
     jsx: true,
   },
@@ -48,22 +49,22 @@ const Element = () => (
 )
 `.trim();
 
-const rule = rules["no-redundant-stack"];
+const rule = rules['no-redundant-stack'];
 
-ruleTester.run("redundant-stack", rule, {
+ruleTester.run('redundant-stack', rule, {
   valid: [multiChildStackCode, arrayChildStackCode],
   invalid: [
     {
       code: emptyStackCode,
-      errors: [{ messageId: "empty" }],
+      errors: [{ messageId: 'empty' }],
     },
     {
       code: selfClosedStackCode,
-      errors: [{ messageId: "empty" }],
+      errors: [{ messageId: 'empty' }],
     },
     {
       code: singleChildStackCode,
-      errors: [{ messageId: "oneChild" }],
+      errors: [{ messageId: 'oneChild' }],
     },
   ],
 });

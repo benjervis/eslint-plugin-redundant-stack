@@ -7,6 +7,7 @@ Braid Stacks are used to manage the vertical spacing between elements. If you ha
 Usually this comes about because you did need a Stack originally, but refactored away the other child elements, not realising there was only one left.
 
 ## Examples
+
 ```jsx
 // ok
 <Stack space="medium">
@@ -33,8 +34,7 @@ Usually this comes about because you did need a Stack originally, but refactored
 
 ```jsx
 // error - empty
-<Stack space="medium">
-</Stack>
+<Stack space="medium"></Stack>
 ```
 
 ## Usage
