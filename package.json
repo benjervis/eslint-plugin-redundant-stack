@@ -8,7 +8,6 @@
   "scripts": {
     "build": "babel src -d lib",
     "test": "tsm test/check-stack-children.test.ts",
-    "semantic-release": "semantic-release",
     "tsc": "tsc",
     "lint:prettier": "prettier --cache --list-different .",
     "format:prettier": "prettier --cache --write .",
